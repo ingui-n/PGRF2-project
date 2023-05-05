@@ -6,6 +6,6 @@ A couple of screenshots:
 
 ![Sand Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img1.png)
 
-![Another Sand Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img2.png)
+![Another Sand Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img4.png)
 
 ![Grass Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img3.png)
