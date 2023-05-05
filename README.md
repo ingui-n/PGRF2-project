@@ -2,10 +2,10 @@
 
 A couple of screenshots:
 
-![Grass Map](/screenshots/img0.png?raw=true)
+![Grass Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img0.png)
 
-![Sand Map](/screenshots/img1.png?raw=true)
+![Sand Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img1.png)
 
-![Another Sand Map](/screenshots/img2.png?raw=true)
+![Another Sand Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img2.png)
 
-![Grass Map](/screenshots/img3.png?raw=true)
+![Grass Map](https://raw.githubusercontent.com/ingui-n/PGRF2-project/main/screeshots/img3.png)
