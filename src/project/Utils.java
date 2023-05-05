@@ -12,7 +12,7 @@ public class Utils<E> {
     }
 
     public int getRandomWithProbabilities(double[] probabilities) {
-        double randomNum = Math.random() * 10;//the random
+        double randomNum = Math.random() * 10;
         double totalProb = 0;
 
         for (int i = 0; i < probabilities.length; i++) {

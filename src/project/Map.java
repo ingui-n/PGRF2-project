@@ -28,9 +28,6 @@ public class Map {
     }
 
     private void setMapType() {
-        double[] probabilities = {0.25, 0.25, 0.25, 0.25};
-        /**String[] mapTypes = {"dirt", "fall", "grass", "sand"};*/
-
         mapType = utils.getRandomNumberInRage(1, 2);
     }
 
@@ -68,28 +65,8 @@ public class Map {
         return z0 == z1 && z1 == z2 && z2 == z3;
     }
 
-    private boolean isInMap(int x, int y) {
-        return x > 0 && x < this.width && y > 0 && y < this.height;
-    }
-
-    private int getRandomX() {
-        return utils.getRandomNumber(width);
-    }
-
-    private int getRandomY() {
-        return utils.getRandomNumber(height);
-    }
-
     public Tile getTile(int x, int y) {
         return map[x][y];
-    }
-
-    public Tile[][] getMap() {
-        return map;
-    }
-
-    public int getMapType() {
-        return mapType;
     }
 
     public int getWidth() {
@@ -98,10 +75,6 @@ public class Map {
 
     public int getHeight() {
         return height;
-    }
-
-    public int[][] getTerrain() {
-        return terrain.getTerrain();
     }
 
     public int getElevation(int x, int y) {

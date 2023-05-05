@@ -62,7 +62,7 @@ public class Terrain {
         }
     }
 
-    private void generateShapeOneLayerTerrain(int elevation, int radius) {//todo add props
+    private void generateShapeOneLayerTerrain(int elevation, int radius) {
         ArrayList<Point> points = new ShapeGenerator(radius, .5, .5, 8).generatePolygon();
 
         tempTerrain = convertToArray(points);
@@ -176,13 +176,13 @@ public class Terrain {
             for (int x = x1; x <= x2; x++) {
                 float y = k * x + q;
 
-                setTerrainAround(x, Math.round(y), 1);
+                setTerrainAround(x, Math.round(y));
             }
         } else {
             for (int y = y1; y <= y2; y++) {
                 float x = x1 == x2 ? x1 : (y - q) / k;
 
-                setTerrainAround(Math.round(x), y, 1);
+                setTerrainAround(Math.round(x), y);
             }
         }
     }
@@ -228,8 +228,6 @@ public class Terrain {
                 }
             }
         }
-
-        //todo getRandomWithProbabilities(new double[]{0.3, 0.35, 0.35}) + 3;
     }
 
 
@@ -241,20 +239,14 @@ public class Terrain {
         return terrain[x][y];
     }
 
-    private Tile getRandomPosition() {
-        int x = utils.getRandomNumber(width);
-        int y = utils.getRandomNumber(height);
-        return map[x][y];
-    }
-
-    private void setTerrainWithTest(int x, int y, int el) {
+    private void setTerrainWithTest(int x, int y) {
         if (isInMap(x, y))
-            tempTerrain[x][y] = el;
+            tempTerrain[x][y] = 1;
     }
 
-    private void setTerrainAround(int x, int y, int el) {
-        setTerrainWithTest(x, y, el);
-        setTerrainWithTest(x - 1, y - 1, el);
-        setTerrainWithTest(x + 1, y + 1, el);
+    private void setTerrainAround(int x, int y) {
+        setTerrainWithTest(x, y);
+        setTerrainWithTest(x - 1, y - 1);
+        setTerrainWithTest(x + 1, y + 1);
     }
 }

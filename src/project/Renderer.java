@@ -12,12 +12,7 @@ import java.util.ArrayList;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static project.GluUtils.gluPerspective;
-import static project.Variables.MAP_HEIGHT;
-import static project.Variables.MAP_WIDTH;
 
-/**
- * todo create gui
- */
 public class Renderer extends AbstractRenderer {
     private float zenith, azimuth, startZenit = 70.4f, startAzimut = 69.1f, radius = 5;
     private double camPositionX = 3, camPositionY = -44, camPositionZ = 36;
@@ -29,6 +24,7 @@ public class Renderer extends AbstractRenderer {
     private OGLTexture2D dirtTexture, grassTexture, fallTexture, sandTexture, waterTexture;
     private ArrayList<OGLTexture2D> trees, rocks, golds;
     private Map map;
+    private final int MAP_WIDTH = 20, MAP_HEIGHT = 20;
 
 
     public Renderer() {
@@ -66,8 +62,6 @@ public class Renderer extends AbstractRenderer {
                             deltaTrans *= 1.02;
                     }
                     case GLFW_KEY_W -> {
-//                        camera.horForward(trans);
-//                        horForward(.5);
                         camera.forward(trans);
                         if (deltaTrans < 0.001f)
                             deltaTrans = 0.001f;
@@ -75,8 +69,6 @@ public class Renderer extends AbstractRenderer {
                             deltaTrans *= 1.02;
                     }
                     case GLFW_KEY_S -> {
-//                        camera.horBackward(trans);
-//                        horBackward(.5);
                         camera.backward(trans);
                         if (deltaTrans < 0.001f)
                             deltaTrans = 0.001f;
@@ -140,20 +132,6 @@ public class Renderer extends AbstractRenderer {
         };
     }
 
-    public void repaint() {
-        initTextures();
-        initMap();
-    }
-
-    public void horForward(double speed) {
-        pos = pos.add(new Vec3D(Math.sin(azimuth) * Math.cos(0), Math.sin(0), -Math.cos(azimuth) * Math.cos(0)).mul(speed));
-        camera.setPosition(pos);
-    }
-
-    public void horBackward(double speed) {
-        horForward(-1 * speed);
-    }
-
     @Override
     public void init() {
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -196,7 +174,7 @@ public class Renderer extends AbstractRenderer {
         glPopMatrix();
 
         glRotated(45, 0, 0, 1);
-        /*glRotated(90, 1, 0, 1);//todo set viewpoint
+        /*glRotated(90, 1, 0, 1);//todo set better viewpoint
         glRotated(90, 1, 1, 0);
         glRotated(180, 1, 1, 0);*/
 
@@ -301,17 +279,6 @@ public class Renderer extends AbstractRenderer {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             glEnable(GL_ALPHA_TEST);
             glAlphaFunc(GL_GREATER, 0.1f);
-
-            /*glBegin(GL_TRIANGLE_FAN);
-            glTexCoord2f(0, 1);
-            glVertex3d(x, y + 2, z0);
-            glTexCoord2f(1, 1);
-            glVertex3d(x + 4, y + 2, z1);
-            glTexCoord2f(1, 0);
-            glVertex3d(x + 4, y + 2, z2 + 4);
-            glTexCoord2f(0, 0);
-            glVertex3d(x, y + 2, z3 + 4);
-            glEnd();*/
 
             glBegin(GL_TRIANGLE_FAN);
             glTexCoord2f(0, 1);
